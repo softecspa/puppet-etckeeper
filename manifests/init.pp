@@ -74,4 +74,8 @@ class etckeeper {
     creates => '/etc/.git',
     require => [ Package[$gitpackage], Package['etckeeper'], ],
   }
+
+  git::config_usermail {'config_usermail':
+    require => Package[$gitpackage]
+  }
 }
